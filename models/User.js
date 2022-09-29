@@ -7,6 +7,32 @@ const UserSchema = new mongoose.Schema({
   password: String
 })
 
+const googleUserSchema = new mongoose.Schema({
+  googleId: {
+    type: String,
+    required: true
+},
+displayName: {
+    type: String,
+    required: true
+},
+firstName: {
+    type: String,
+    required: true
+},
+lastName: {
+    type: String,
+    required: true
+},
+image: {
+    type: String
+},
+createdAt: {
+    type: Date,
+    default: Date.now
+}
+})
+
 
 // Password hash middleware.
  
@@ -33,4 +59,6 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
 }
 
 
+
 module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('google', googleUserSchema)

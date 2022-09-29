@@ -20,25 +20,25 @@ router.get('/logout', authController.logout)
 router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 
-//@desc Auth with Google
-//@route GET /auth/google
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }))
+// //@desc Auth with Google
+// //@route GET /auth/google
+// router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }))
 
-//@desc Google auth callback
-//@route GET /auth/google/callback
-router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), (req,res) => {
-    res.redirect('/companies')
-})
+// //@desc Google auth callback
+// //@route GET /auth/google/callback
+// router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/'}), (req,res) => {
+//     res.redirect('/companies')
+// })
 
-//@desc Logout User
-//@route /auth/logout
-//!Change: Passport 0.6 requires logout to be async
-router.get('/logout', (req,res,next) => {
-    req.logout(function(err) {
-        if (err) {return next(err)}
-        res.redirect('/')
-    })
-})
+// //@desc Logout User
+// //@route /auth/logout
+// //!Change: Passport 0.6 requires logout to be async
+// router.get('/logout', (req,res,next) => {
+//     req.logout(function(err) {
+//         if (err) {return next(err)}
+//         res.redirect('/')
+//     })
+// })
 
 
 module.exports = router
