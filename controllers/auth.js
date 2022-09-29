@@ -5,6 +5,7 @@ const Companies = require('../models/Company')
 
  exports.getLogin = (req, res) => {
     if (req.user) {
+      // does this need to have it's own end point? Separate from Google
       return res.redirect('/companies')
     }
     res.render('login', {
